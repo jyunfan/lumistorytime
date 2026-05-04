@@ -1,0 +1,5 @@
+# The Quack Frog
+
+Once upon a time a Frog came forth from his home in the marshes and proclaimed to all the world that he was a learned physician, skilled in drugs and able to cure all diseases. Among the crowd was a Fox, who called out, "You a doctor! Why, how can you set up to heal others when you cannot even cure your own lame legs and blotched and wrinkled skin?"
+
+Physician, heal thyself.
