@@ -4,7 +4,7 @@ ElevenLabs
 語音：ElevenLab
 圖片：Nano Banana Pro
 音樂：ElevenLab
-Source: GUTENBERG - AESOP'S FABLES
+Source: GUTENBERG - AESOP'S FABLES - https://www.gutenberg.org/files/11339/11339-h/11339-h.htm
 
 Voice Model
 * Yui - Delicate, Graceful, and Soothing
