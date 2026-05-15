@@ -26,7 +26,7 @@ from urllib.request import Request, urlopen
 
 
 API_BASE = "https://api.elevenlabs.io"
-DEFAULT_MODEL = "eleven_multilingual_v2"
+DEFAULT_MODEL = "eleven_v3"
 DEFAULT_OUTPUT_FORMAT = "mp3_44100_128"
 TRANSCRIPT_ID_RE = re.compile(r"^(\d{3})-")
 STAGE_DIRECTION_RE = re.compile(r"(?m)^\[[^\]\n]+\]\s*")
@@ -88,8 +88,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--language-code",
-        default="zh",
-        help="Optional language code sent to ElevenLabs. Use empty string to omit.",
+        default="",
+        help="Optional language code sent to ElevenLabs. Omitted by default to match the Web UI when Language Override is off.",
     )
     parser.add_argument(
         "--stability",
@@ -123,8 +123,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--strip-stage-directions",
         action="store_true",
-        default=True,
-        help="Remove leading bracket cues like [excited] before sending text. Enabled by default.",
+        default=False,
+        help="Remove leading bracket cues like [excited] before sending text.",
     )
     parser.add_argument(
         "--keep-stage-directions",
@@ -340,7 +340,7 @@ def validate_tts_text(input_path: Path, text: str, allow_latin: bool) -> None:
     if allow_latin:
         return
 
-    check_text = text
+    check_text = STAGE_DIRECTION_RE.sub("", text)
     for term in ALLOWED_LATIN_TERMS:
         check_text = re.sub(rf"\b{re.escape(term)}\b", "", check_text, flags=re.IGNORECASE)
 
