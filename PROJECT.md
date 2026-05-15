@@ -29,6 +29,9 @@ Voice Model
 英文本文:
 
 
+# Transcript 後處理
+生成 transcript 後，將所有「牠」替換成「他」。
+
 # mix
 ffmpeg -i voice.mp3 -i music.mp3 \
 -filter_complex "\
